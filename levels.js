@@ -6,7 +6,7 @@ var challenges = {
       hint: `<h1>Bonjour le Monde !</h1>`,
       filename: "index.html",
       starter: `<!-- Écris ton titre ici -->\n`,
-      check: (code) => /<h1[^>]*>\s*Bonjour\s*le\s*Monde\s*!?\s*<\/h1>/i.test(code),
+      check: (code) => /<h1[^>]*>\s*Bonjour\s*le\s*Monde\s*!?\s*<\/h1>/i.test(code), //boolean
       preview: true,
     },
     {

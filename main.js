@@ -160,19 +160,29 @@ function runCode() {
 }
 
 function runJavaScript(code, output) {
-  const logs    = [];
+  const logs = [];
   const origLog = console.log;
-  console.log   = (...args) => logs.push(args.map(String).join(' '));
+  console.log = (...args) => logs.push(args.join(' '));
+  //console.log("test");
+
+
   try {
     eval(code);
-    output.innerHTML = logs.length
-      ? logs.map(l => `<span style="color:#a8e6cf">${escHtml(l)}</span>`).join('\n')
-      : '<span style="color:#7070a0">// No output</span>';
+    if (logs.length > 0) {
+      output.innerHTML = logs.map(
+        l => `<span style="color:green">${l}</span>`)
+        .join('\n');
+    } else {
+      output.innerHTML = '// No output'; 
+    }
+
   } catch (e) {
-    output.innerHTML = `<span style="color:#ff6b6b">Error: ${escHtml(e.message)}</span>`;
+    output.innerHTML = `<span style="color:red">Erreur: ${e.message}</span>`;
+
   } finally {
     console.log = origLog;
   }
+
 }
 
 function simulatePython(code, output) {
@@ -216,7 +226,6 @@ function simulatePython(code, output) {
   }
 }
 
-// ===== CHECK ANSWER =====
 function checkAnswer() {
   const code      = document.getElementById('code-editor').value;
   const data      = challenges[currentLang][currentLevel];
@@ -313,7 +322,10 @@ document.addEventListener('DOMContentLoaded', () => {
     script.src    = 'levels-en.js';
     script.onload = () => updateHomeText(lang);
     document.body.appendChild(script);
-  } else {
+  } 
+  
+  
+  else {
 
     updateHomeText('fr');
   }
