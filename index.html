@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hackathon</title>
@@ -8,5 +9,110 @@
 <body>
         <h1>Hackathon</h1>
         <h2> ASLAMUALIKUM </h2>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeQuest — Learn to Code</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- SCREEN: HOME -->
+<div id="screen-home" class="screen active">
+  <div class="home-bg">
+    <div class="grid-lines"></div>
+  </div>
+  <div class="home-content">
+    <div class="logo-badge">HACKATHON 2026</div>
+    <h1 class="home-title">Code<span class="accent">Quest</span></h1>
+    <p class="home-sub">Your first adventure into programming.<br/>Choose your language and start coding!</p>
+    <div class="lang-cards">
+      <div class="lang-card" data-lang="html" onclick="startGame('html')">
+        <div class="lang-icon">🌐</div>
+        <div class="lang-name">HTML / CSS</div>
+        <div class="lang-desc">Build the web, style the world</div>
+        <div class="lang-diff">★☆☆ Beginner</div>
+      </div>
+      <div class="lang-card" data-lang="js" onclick="startGame('js')">
+        <div class="lang-icon">⚡</div>
+        <div class="lang-name">JavaScript</div>
+        <div class="lang-desc">Make things move & interact</div>
+        <div class="lang-diff">★★☆ Intermediate</div>
+      </div>
+      <div class="lang-card" data-lang="python" onclick="startGame('python')">
+        <div class="lang-icon">🐍</div>
+        <div class="lang-name">Python</div>
+        <div class="lang-desc">Logic, data, algorithms</div>
+        <div class="lang-diff">★★☆ Intermediate</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: GAME -->
+<div id="screen-game" class="screen">
+  <div class="game-header">
+    <button class="btn-back" onclick="goHome()">← Back</button>
+    <div class="game-title-bar">
+      <span id="game-lang-label"></span>
+      <span id="game-level-label"></span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+  </div>
+
+  <div class="game-body">
+    <!-- LEFT: Challenge -->
+    <div class="panel panel-left">
+      <div class="challenge-badge" id="challenge-num">Challenge 1</div>
+      <h2 class="challenge-title" id="challenge-title"></h2>
+      <p class="challenge-desc" id="challenge-desc"></p>
+      <div class="hint-box" id="hint-box" style="display:none"></div>
+      <button class="btn-hint" onclick="showHint()">💡 Show hint</button>
+    </div>
+
+    <!-- MIDDLE: Editor -->
+    <div class="panel panel-middle">
+      <div class="editor-header">
+        <span class="editor-dot red"></span>
+        <span class="editor-dot yellow"></span>
+        <span class="editor-dot green"></span>
+        <span class="editor-filename" id="editor-filename">index.html</span>
+      </div>
+      <textarea class="code-editor" id="code-editor" spellcheck="false"></textarea>
+      <div class="editor-actions">
+        <button class="btn-run" onclick="runCode()">▶ Run</button>
+        <button class="btn-check" onclick="checkAnswer()">✓ Check</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: Preview / Output -->
+    <div class="panel panel-right">
+      <div class="preview-header">Preview</div>
+      <iframe id="preview-frame" class="preview-frame"></iframe>
+      <div class="output-box" id="output-box" style="display:none"></div>
+      <div class="result-msg" id="result-msg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN: VICTORY -->
+<div id="screen-victory" class="screen">
+  <div class="victory-content">
+    <div class="victory-emoji">🎉</div>
+    <h2 class="victory-title">Level Complete!</h2>
+    <p class="victory-sub" id="victory-sub"></p>
+    <div class="victory-stars" id="victory-stars">★★★</div>
+    <div class="victory-btns">
+      <button class="btn-next" onclick="nextLevel()">Next Challenge →</button>
+      <button class="btn-home" onclick="goHome()">🏠 Home</button>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+>>>>>>> 934b4f3 (whhhhhhhhhhhhhat)
 </body>
 </html>
