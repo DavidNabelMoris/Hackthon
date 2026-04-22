@@ -12,30 +12,47 @@
 <!-- SCREEN: HOME -->
 <div id="screen-home" class="screen active">
   <div class="home-bg">
-    <div class="grid-lines"></div>
+  </div>
+  <div class="lang">
+    <img src="https://flagcdn.com/fr.svg" alt="FR" height="28" onclick="switchLanguage('fr')" style="cursor:pointer">
+    /
+    <img src="https://flagcdn.com/gb.svg" alt="EN" height="28" onclick="switchLanguage('en')" style="cursor:pointer">
   </div>
   <div class="home-content">
     <div class="logo-badge">HACKATHON 2026</div>
     <h1 class="home-title">Code<span class="accent">Quest</span></h1>
-    <p class="home-sub">Your first adventure into programming.<br/>Choose your language and start coding!</p>
+    <p class="home-sub" id="home-sub">Ta première aventure dans le code. Choisis ton langage !</p>
     <div class="lang-cards">
       <div class="lang-card" data-lang="html" onclick="startGame('html')">
-        <div class="lang-icon">🌐</div>
-        <div class="lang-name">HTML / CSS</div>
-        <div class="lang-desc">Build the web, style the world</div>
-        <div class="lang-diff">★☆☆ Beginner</div>
+        <div>
+            <img class="lang-icon"src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/250px-HTML5_logo_and_wordmark.svg.png" alt="">
+        </div>
+        <div>
+            <div class="lang-name">HTML / CSS</div>
+            <div class="lang-desc">Construis le web, stylise le monde</div>
+            <div class="lang-diff">★☆☆ Débutant</div>
+        </div>
       </div>
       <div class="lang-card" data-lang="js" onclick="startGame('js')">
-        <div class="lang-icon">⚡</div>
-        <div class="lang-name">JavaScript</div>
-        <div class="lang-desc">Make things move & interact</div>
-        <div class="lang-diff">★★☆ Intermediate</div>
+        <div>
+            <img class="lang-icon"src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Javascript_badge.svg/250px-Javascript_badge.svg.png?_=20160504163251" alt="">
+        </div>
+        <div>
+            <div class="lang-name">JavaScript</div>
+            <div class="lang-desc">Fais bouger les choses</div>
+            <div class="lang-diff">★★☆ Intermédiaire</div>
+        </div>
       </div>
       <div class="lang-card" data-lang="python" onclick="startGame('python')">
-        <div class="lang-icon">🐍</div>
-        <div class="lang-name">Python</div>
-        <div class="lang-desc">Logic, data, algorithms</div>
-        <div class="lang-diff">★★☆ Intermediate</div>
+
+        <div>
+            <img class="lang-icon"src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/250px-Python-logo-notext.svg.png" alt="">
+        </div>
+        <div></div>
+            <div class="lang-name">Python</div>
+            <div class="lang-desc">Logique, données, algorithmes</div>
+            <div class="lang-diff">★★☆ Intermédiaire</div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,7 +61,7 @@
 <!-- SCREEN: GAME -->
 <div id="screen-game" class="screen">
   <div class="game-header">
-    <button class="btn-back" onclick="goHome()">← Back</button>
+    <button class="btn-back" onclick="goHome()">← Retour</button>
     <div class="game-title-bar">
       <span id="game-lang-label"></span>
       <span id="game-level-label"></span>
@@ -61,7 +78,7 @@
       <h2 class="challenge-title" id="challenge-title"></h2>
       <p class="challenge-desc" id="challenge-desc"></p>
       <div class="hint-box" id="hint-box" style="display:none"></div>
-      <button class="btn-hint" onclick="showHint()">💡 Show hint</button>
+      <button class="btn-hint" id="btn-hint" onclick="showHint()">💡 Afficher l'indice</button>
     </div>
 
     <!-- MIDDLE: Editor -->
@@ -75,13 +92,13 @@
       <textarea class="code-editor" id="code-editor" spellcheck="false"></textarea>
       <div class="editor-actions">
         <button class="btn-run" onclick="runCode()">▶ Run</button>
-        <button class="btn-check" onclick="checkAnswer()">✓ Check</button>
+        <button class="btn-check" onclick="checkAnswer()">✓ Vérifier</button>
       </div>
     </div>
 
     <!-- RIGHT: Preview / Output -->
     <div class="panel panel-right">
-      <div class="preview-header">Preview</div>
+      <div class="preview-header" id="preview-header">Preview</div>
       <iframe id="preview-frame" class="preview-frame"></iframe>
       <div class="output-box" id="output-box" style="display:none"></div>
       <div class="result-msg" id="result-msg"></div>
@@ -93,17 +110,19 @@
 <div id="screen-victory" class="screen">
   <div class="victory-content">
     <div class="victory-emoji">🎉</div>
-    <h2 class="victory-title">Level Complete!</h2>
+    <h2 class="victory-title" id="victory-title">Niveau Complété !</h2>
     <p class="victory-sub" id="victory-sub"></p>
     <div class="victory-stars" id="victory-stars">★★★</div>
     <div class="victory-btns">
-      <button class="btn-next" onclick="nextLevel()">Next Challenge →</button>
-      <button class="btn-home" onclick="goHome()">🏠 Home</button>
+      <button class="btn-next" id="btn-next" onclick="nextLevel()">Challenge suivant →</button>
+      <button class="btn-home" onclick="goHome()">🏠 Accueil</button>
     </div>
   </div>
 </div>
 
+<!-- levels-script has NO onload here — main.js handles it -->
+<script id="levels-script" src="levels.js"></script>
 <script src="main.js"></script>
->>>>>>> 934b4f3 (whhhhhhhhhhhhhat)
+
 </body>
 </html>
